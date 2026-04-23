@@ -1,0 +1,14 @@
+{
+  "name": "Weather Now",
+  "short_name": "Weather",
+  "description": "A modern weather dashboard with hourly, daily forecasts, and more.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#05051a",
+  "theme_color": "#05051a",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

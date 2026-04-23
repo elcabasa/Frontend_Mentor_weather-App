@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Weather Now</title>
+    <meta name="theme-color" content="#05051a" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/app.css" />
+  </head>
+  <body>
+    <div id="bgFx" class="bg-fx" aria-hidden="true"></div>
+
+    <div id="app">
+      <header class="navbar">
+        <div class="brand">
+          <span class="brand-orb"></span>
+          <span class="brand-name">Weather Now</span>
+        </div>
+        <div class="nav-actions">
+          <button id="compareToggle" class="icon-btn" title="Compare two cities">⇄ Compare</button>
+          <button id="themeToggle" class="theme-btn" title="Toggle theme">🌙</button>
+          <div class="units-wrapper">
+            <button id="unitsBtn" class="units-btn">
+              <span class="gear">⚙</span> Units
+              <span class="caret">▾</span>
+            </button>
+            <div id="unitsMenu" class="units-menu hidden">
+              <button data-mode="auto" class="unit-option mode-option">Auto theme (by time)</button>
+              <div class="menu-divider"></div>
+              <button data-unit="celsius" class="unit-option active">°C — Celsius</button>
+              <button data-unit="fahrenheit" class="unit-option">°F — Fahrenheit</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main">
+        <h1 class="hero-title">How's the sky looking today?</h1>
+
+        <form id="searchForm" class="search-row" autocomplete="off">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input id="searchInput" type="search" placeholder="Search for a place..." />
+            <button id="micBtn" type="button" class="mic-btn" title="Voice search">🎤</button>
+            <ul id="suggestList" class="suggest hidden"></ul>
+          </div>
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+
+        <div id="chipsRow" class="chips-row"></div>
+
+        <section id="dashboard" class="dashboard">
+          <div class="left-col" data-panel="A"></div>
+
+          <aside class="sidebar">
+            <div class="sidebar-header">
+              <h3>Hourly forecast</h3>
+              <div class="day-wrapper">
+                <button id="dayBtn" class="day-btn">
+                  <span id="dayLabel">Today</span>
+                  <span class="caret">▾</span>
+                </button>
+                <div id="dayMenu" class="day-menu hidden"></div>
+              </div>
+            </div>
+            <ul id="hourlyList" class="hourly-list"></ul>
+          </aside>
+        </section>
+
+        <section id="compareSection" class="compare-section hidden">
+          <div class="compare-header">
+            <h3>Compare with</h3>
+            <form id="compareForm" class="compare-form">
+              <input id="compareInput" type="search" placeholder="Search second city..." />
+              <button type="submit">Add</button>
+              <button type="button" id="compareClose" title="Close">✕</button>
+            </form>
+          </div>
+          <div class="left-col" data-panel="B"></div>
+        </section>
+      </main>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
